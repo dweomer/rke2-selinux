@@ -17,6 +17,7 @@ interface(`rke2_filetrans_named_content',`
     filetrans_pattern($1, container_var_lib_t, container_runtime_exec_t, dir, "data")
     filetrans_pattern($1, container_var_lib_t, container_share_t, dir, "snapshots")
     filetrans_pattern($1, container_var_lib_t, container_file_t, dir, "pods")
+    filetrans_pattern($1, container_var_lib_t, container_file_t, dir, "volumes")
     filetrans_pattern($1, container_var_run_t, container_runtime_tmpfs_t, dir, "shm")
     filetrans_pattern($1, var_lib_t, container_var_lib_t, dir, "kubelet")
     filetrans_pattern($1, var_log_t, container_log_t, dir, "pods")
