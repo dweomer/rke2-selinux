@@ -22,7 +22,8 @@ case "$RPM_CHANNEL" in
       echo "TESTING_PRIVATE_KEY not defined, failing rpm sign"
       exit 1
     fi
-    gpg --import - <<<"$TESTING_PRIVATE_KEY"
+    #gpg --import -v - <<<"$TESTING_PRIVATE_KEY"
+    gpg --yes --pinentry-mode loopback --batch --passphrase "${TESTING_PRIVATE_KEY_PASS_PHRASE}" --import - <<< "${TESTING_PRIVATE_KEY}"
     ;;
   "latest"|"stable")
     if ! grep "BEGIN PGP PRIVATE KEY BLOCK" <<<"$PRIVATE_KEY"; then
